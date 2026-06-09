@@ -108,11 +108,11 @@ export default function Info() {
         <BackHeader title="App Info" onBack={goBack} />
 
         {/* Center branding */}
-        <View className="flex-1 items-center justify-center gap-5 pb-10 px-4">
-          <View className="bg-indigo-600 rounded-xl">
+        <View className="flex-1 items-center justify-center gap-4 pb-10 px-4">
+          <View className="bg-indigo-600 rounded-3xl">
             <Image
               source={require("@/assets/images/icon.png")}
-              style={{ width: 74, height: 74 }}
+              style={{ width: 84, height: 84 }}
             />
           </View>
           <AppName />
