@@ -109,10 +109,12 @@ export default function Info() {
 
         {/* Center branding */}
         <View className="flex-1 items-center justify-center gap-5 pb-10 px-4">
-          <Image
-            source={require("@/assets/images/icon.png")}
-            style={{ width: 74, height: 74 }}
-          />
+          <View className="bg-indigo-600 rounded-xl">
+            <Image
+              source={require("@/assets/images/icon.png")}
+              style={{ width: 74, height: 74 }}
+            />
+          </View>
           <AppName />
           <Divider />
           <UnofficialBadge />
