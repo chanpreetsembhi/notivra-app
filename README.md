@@ -12,7 +12,7 @@ Notivra is a React Native and Expo app that provides **NEP syllabus-based notes*
 
 ## 🎥 Demo
 
-[Notivra Demo](./assets/preview.gif)
+![Notivra Demo](./assets/preview.gif)
 
 ## 🛠️ Tech Stack
 
