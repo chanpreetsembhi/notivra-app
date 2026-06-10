@@ -30,8 +30,7 @@ function OfflineToast({ visible }: { visible: boolean }) {
 
   return (
     <Animated.View
-      pointerEvents="none"
-      style={{ opacity, transform: [{ translateY }] }}
+      style={{ opacity, transform: [{ translateY }], pointerEvents: "none" }}
       className="absolute top-14 left-4 right-4 z-50 flex-row items-center gap-3 rounded-2xl bg-zinc-900 border border-zinc-700 px-4 py-3"
     >
       <View className="w-2 h-2 rounded-full bg-red-500" />

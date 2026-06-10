@@ -1,13 +1,14 @@
 import AppText from "@/src/components/AppText";
 import ScreenWrapper from "@/src/components/ScreenWrapper";
-import { goBack } from "expo-router/build/global-state/routing";
+import { router } from "expo-router";
 import { Image, View } from "react-native";
 import BackHeader from "../components/BackHeader";
 
 const META_TAGS = ["v1.0.0", "React Native"];
 
-// ─── Sub-components ───
+const goBack = () => router.back();
 
+// ─── Sub-components ───
 function AppName() {
   return (
     <View className="items-center gap-2">

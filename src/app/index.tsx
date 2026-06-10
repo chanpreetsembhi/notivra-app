@@ -17,7 +17,7 @@ import {
 } from "react-native";
 import SearchBar from "../components/SearchBar";
 
-const API_URL = "https://notivra-backend.vercel.app/api/subjects";
+const API_BASE = "https://notivra-backend.vercel.app/api/subjects";
 
 function SubjectCard({
   item,
@@ -71,11 +71,11 @@ export default function Index() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchSubjects = async () => {
+  const fetchSubjects = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
-      const { data } = await axios.get(API_URL);
+      const { data } = await axios.get(API_BASE);
       setSubjects(data.subjects);
       setFiltered(data.subjects);
     } catch {
@@ -85,11 +85,11 @@ export default function Index() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchSubjects();
-  }, []);
+  }, [fetchSubjects]);
 
   useEffect(() => {
     const q = query.trim().toLowerCase();
@@ -99,8 +99,6 @@ export default function Index() {
         : subjects,
     );
   }, [query, subjects]);
-
-  const onRefresh = useCallback(fetchSubjects, []);
 
   const goToTopics = (subject: any) =>
     router.push({
@@ -174,7 +172,7 @@ export default function Index() {
         refreshControl={
           <RefreshControl
             refreshing={loading}
-            onRefresh={onRefresh}
+            onRefresh={fetchSubjects}
             tintColor={isDark ? "#7c86ff" : "#6366f1"}
           />
         }

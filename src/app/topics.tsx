@@ -6,13 +6,14 @@ import LoadingScreen from "@/src/components/LoadingScreen";
 import ScreenWrapper from "@/src/components/ScreenWrapper";
 import { Ionicons } from "@expo/vector-icons";
 import axios from "axios";
-import { useLocalSearchParams, useRouter } from "expo-router";
-import { goBack } from "expo-router/build/global-state/routing";
+import { router, useLocalSearchParams, useRouter } from "expo-router";
 import { useCallback, useEffect, useState } from "react";
 import { FlatList, RefreshControl, useColorScheme, View } from "react-native";
 import BackHeader from "../components/BackHeader";
 
 const API_BASE = "https://notivra-backend.vercel.app/api/subjects";
+
+const goBack = () => router.back();
 
 function TopicCard({
   item,
