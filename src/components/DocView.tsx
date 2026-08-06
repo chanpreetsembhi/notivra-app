@@ -3,6 +3,7 @@ import { useColorScheme, View } from "react-native";
 import Markdown from "react-native-marked";
 import AppText from "./AppText";
 import LoadingScreen from "./LoadingScreen";
+import CustomRenderer from "./MarkdownRenderer";
 
 type DocViewProps = {
   file: string;
@@ -15,10 +16,12 @@ const MARKDOWN_THEME = {
 };
 
 const MARKDOWN_STYLES = {
-  paragraph: { marginBottom: 24 },
+  paragraph: { marginBottom: 4 },
   li: { marginBottom: 10 },
   h2: { fontSize: 22 },
 };
+
+const renderer = new CustomRenderer();
 
 function toRawGitHubUrl(url: string): string {
   return url
@@ -82,6 +85,7 @@ export default function DocView({ file }: DocViewProps) {
         value={content}
         theme={MARKDOWN_THEME}
         styles={MARKDOWN_STYLES}
+        renderer={renderer}
         flatListProps={{
           className: "p-4",
           contentContainerStyle: { paddingBottom: 20 },
