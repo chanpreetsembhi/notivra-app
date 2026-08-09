@@ -39,11 +39,12 @@ function SubjectCard({
         <Ionicons name="layers-outline" size={18} color={iconColor} />
       </View>
 
-      <View className="flex-1 min-w-0">
+      <View className="flex-1 min-w-0 pr-5">
         <AppText
           size="sm"
           weight="500"
           tracking="tight"
+          numberOfLines={1}
           className="text-[14.5px]"
         >
           {item.subject}

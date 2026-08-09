@@ -23,6 +23,7 @@ function AppName() {
           weight="500"
           tracking="wide"
           uppercase
+          className="pb-0"
         >
           New Education Policy
         </AppText>
@@ -39,9 +40,9 @@ function Divider() {
 
 function UnofficialBadge() {
   return (
-    <View className="flex-row items-center gap-2 border rounded-xl px-5 py-3 bg-amber-50 border-amber-200 dark:bg-amber-950/30 dark:border-amber-900/60">
-      <View className="w-2 h-2 rounded-full bg-amber-400" />
-      <AppText className="text-[12px] text-amber-700 dark:text-amber-400">
+    <View className="flex-row items-center gap-2 border rounded-lg px-4 py-2.5 bg-amber-50 border-amber-200 dark:bg-amber-950/30 dark:border-amber-900/60">
+      <View className="size-2 rounded-full bg-amber-400" />
+      <AppText size="xs" className=" text-amber-700 dark:text-amber-400 pb-0">
         Unofficial App
       </AppText>
     </View>
@@ -90,7 +91,7 @@ function Footer() {
             key={label}
             className="border rounded-full px-3 py-1 bg-white border-zinc-200 dark:bg-zinc-900 dark:border-zinc-800"
           >
-            <AppText className="text-[11px] font-medium text-zinc-500">
+            <AppText className="text-[11px] font-medium text-zinc-500 pb-0">
               {label}
             </AppText>
           </View>

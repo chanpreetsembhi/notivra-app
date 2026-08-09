@@ -1,4 +1,7 @@
-import { Image, Linking, Text, TouchableOpacity, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import * as WebBrowser from "expo-web-browser";
+import { Image, TouchableOpacity, View } from "react-native";
+import AppText from "./AppText";
 
 type YoutubeCardProps = {
   videoId: string;
@@ -12,7 +15,7 @@ export default function YoutubeCard({ videoId, title }: YoutubeCardProps) {
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      onPress={() => Linking.openURL(url)}
+      onPress={() => WebBrowser.openBrowserAsync(url)}
       className="w-full rounded-2xl overflow-hidden my-4 bg-black shadow-lg"
       style={{ aspectRatio: 16 / 9 }}
     >
@@ -28,20 +31,8 @@ export default function YoutubeCard({ videoId, title }: YoutubeCardProps) {
 
       {/* Play Button - Center */}
       <View className="absolute inset-0 items-center justify-center">
-        <View className="bg-red-600 w-17 h-12 rounded-xl items-center justify-center">
-          <View
-            style={{
-              width: 0,
-              height: 0,
-              marginLeft: 4,
-              borderLeftWidth: 18,
-              borderTopWidth: 11,
-              borderBottomWidth: 11,
-              borderLeftColor: "#fff",
-              borderTopColor: "transparent",
-              borderBottomColor: "transparent",
-            }}
-          />
+        <View className="bg-red-600 w-17 h-12 rounded-xl items-center justify-center overflow-hidden">
+          <View className="size-0 ml-1 border-l-18 border-t-11 border-b-11 border-l-white border-t-transparent border-b-transparent" />
         </View>
       </View>
 
@@ -49,38 +40,29 @@ export default function YoutubeCard({ videoId, title }: YoutubeCardProps) {
       <View className="absolute bottom-0 left-0 right-0 bg-black/60 flex-row items-center px-3.5 py-3">
         {/* YouTube Icon */}
         <View className="bg-red-600 w-7 h-5 rounded-md items-center justify-center mr-2.5">
-          <View
-            style={{
-              width: 0,
-              height: 0,
-              marginLeft: 2,
-              borderLeftWidth: 8,
-              borderTopWidth: 5,
-              borderBottomWidth: 5,
-              borderLeftColor: "#fff",
-              borderTopColor: "transparent",
-              borderBottomColor: "transparent",
-            }}
-          />
+          <View className="size-0 ml-0.5 border-l-8 border-t-5 border-b-5 border-l-white border-t-transparent border-b-transparent" />
         </View>
 
         {/* Text */}
         <View className="flex-1">
           {title && (
-            <Text
-              className="text-white text-[13px] font-bold"
-              numberOfLines={1}
-            >
+            <AppText size="sm" numberOfLines={1} bold className="text-white">
               {title}
-            </Text>
+            </AppText>
           )}
-          <Text className="text-white/80 text-[11px] font-medium">
-            Watch on YouTube
-          </Text>
+          <AppText size="xs" className="text-white/80">
+            Watch on Youtube
+          </AppText>
         </View>
 
         {/* Arrow */}
-        <Text className="text-white text-lg font-bold ml-2">↗</Text>
+        <AppText>
+          <Ionicons
+            name="arrow-up-right-box-outline"
+            size={19}
+            color={"#fff"}
+          />
+        </AppText>
       </View>
     </TouchableOpacity>
   );

@@ -40,7 +40,7 @@ function TopicCard({
         </AppText>
       </View>
 
-      <View className="flex-1 min-w-0">
+      <View className="flex-1 min-w-0 pr-5">
         <AppText
           tracking="tight"
           numberOfLines={1}

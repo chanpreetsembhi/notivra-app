@@ -45,13 +45,14 @@ export default function BackHeader({
               weight="500"
               tracking="tight"
               numberOfLines={1}
+              className="pb-0 pr-5"
             >
               {name}
             </AppText>
           </View>
           <View className="shrink-0 flex-row items-center border rounded-full px-3 py-1.5 gap-1.5 bg-indigo-50 border-indigo-100 dark:bg-indigo-950/40 dark:border-indigo-900">
             <View className="size-1.5 rounded-full bg-indigo-500" />
-            <AppText color="primary" className="text-[11px]">
+            <AppText color="primary" className="text-[11px] pb-0">
               {topics}
             </AppText>
           </View>
@@ -77,8 +78,9 @@ export default function BackHeader({
         weight="500"
         color="secondary"
         tracking="wide"
+        numberOfLines={2}
         uppercase
-        className="pt-0.5"
+        className="pb-0 flex-auto"
       >
         {title}
       </AppText>
