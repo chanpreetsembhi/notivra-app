@@ -1,6 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import * as WebBrowser from "expo-web-browser";
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, Linking, TouchableOpacity, View } from "react-native";
 import AppText from "./AppText";
 
 type YoutubeCardProps = {
@@ -15,7 +14,7 @@ export default function YoutubeCard({ videoId, title }: YoutubeCardProps) {
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      onPress={() => WebBrowser.openBrowserAsync(url)}
+      onPress={() => Linking.openURL(url)}
       className="w-full rounded-2xl overflow-hidden my-4 bg-black shadow-lg"
       style={{ aspectRatio: 16 / 9 }}
     >
